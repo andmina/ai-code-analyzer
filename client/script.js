@@ -85,7 +85,7 @@ const handleSubmit = async(e) => {
   loader(messageDiv);
 
   // Fetch data from server --> bot's botResponse
-  const botResponse = await fetch("http://localhost:5000", {
+  const botResponse = await fetch("https://ai-code-analyzer.onrender.com/", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json' // The request includes a header with the content type set to 'application/json'
