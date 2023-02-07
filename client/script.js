@@ -1,5 +1,5 @@
-import bot from './assets/bot.png';
-import user from './assets/female-user.png';
+import bot from './assets/bot.svg';
+import user from './assets/user.svg';
 const form = document.querySelector('form'); // call the query selector as a function and provide it's id or tag name ("form")
 const chatContainer = document.querySelector('#chat_container');
 
