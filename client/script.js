@@ -1,6 +1,5 @@
-import bot from './assets/bot.svg';
-import user from './assets/user.svg';
-
+import bot from './assets/bot.png';
+import user from './assets/female-user.png';
 const form = document.querySelector('form'); // call the query selector as a function and provide it's id or tag name ("form")
 const chatContainer = document.querySelector('#chat_container');
 
@@ -86,6 +85,7 @@ const handleSubmit = async(e) => {
 
   // Fetch data from server --> bot's botResponse
   const botResponse = await fetch("https://ai-code-analyzer.onrender.com/", {
+    // const botResponse = await fetch("http://localhost:5000", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json' // The request includes a header with the content type set to 'application/json'

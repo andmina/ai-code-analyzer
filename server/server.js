@@ -52,9 +52,8 @@ app.post('/', async(req, res) => {
 });
 
 // Keep listening to new requests
-app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
-
-
+app.listen(5000, () => console.log('AI server started on https://ai-code-analyzer.onrender.com/'))
+// app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
 
 
 
