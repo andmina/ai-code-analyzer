@@ -88,7 +88,7 @@ const handleSubmit = async(e) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // The request includes a header with the content type set to 'application/json'
-      Accept: "image/svg+xml"
+      // Accept: "image/svg+xml"
     },
     body: JSON.stringify({
       prompt: data.get('prompt') // body contains data comming from our text element
@@ -99,8 +99,8 @@ const handleSubmit = async(e) => {
   clearInterval(loadInterval)
   messageDiv.innerHTML = " "
 
-  if (response.ok) {
-    const data = await response.json(); // botResponse from the BE
+  if (botResponse.ok) {
+    const data = await botResponse.json(); // botResponse from the BE
     const parsedData = data.bot.trim(); // we gotta parse the botResponse
 
     //console.log({parsedData})
