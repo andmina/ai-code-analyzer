@@ -88,6 +88,7 @@ const handleSubmit = async(e) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // The request includes a header with the content type set to 'application/json'
+      Accept: "image/svg+xml"
     },
     body: JSON.stringify({
       prompt: data.get('prompt') // body contains data comming from our text element
