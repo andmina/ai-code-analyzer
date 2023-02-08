@@ -20,18 +20,17 @@ function loader(element) {
 
 // Typing motion of the chat bot
 function typeText(element, text) {
-    let index = 0;
-
-    let interval = setInterval(() => {
-      // set the element equal to the charater of the whole text if the index is less than the whole text
-      if (index < text.length) {
-        element.innerHTML += text.charAt(index);
-        index++;
-      }
-      else {
-        clearInterval(interval);
-      }
-    }, 20)
+  let index = 0
+  
+  let interval = setInterval(() => {
+    // set the element equal to the charater of the whole text if the index is less than the whole text
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index)
+      index++
+    } else {
+        clearInterval(interval)
+    }
+  }, 20)
 }
 
 // Generate Unique ID
@@ -44,20 +43,19 @@ function generateUniqueId() {
 
 function chatStripe(isAi, value, uniqueId) {
   return (
-    `
+      `
       <div class="wrapper ${isAi && 'ai'}">
-        <div class="chat">
-          <div class="profile">
-            <img 
-              src="${isAi ? bot : user}"
-              alt="${isAi ? 'bot' : 'user'}"
-              type="image/svg+xml"
-            />
+          <div class="chat">
+              <div class="profile">
+                  <img 
+                    src=${isAi ? bot : user} 
+                    alt="${isAi ? 'bot' : 'user'}" 
+                  />
+              </div>
+              <div class="message" id=${uniqueId}>${value}</div>
           </div>
-          <div class="message" id=${uniqueId}>${value}</div>
-        </div>
       </div>
-    `
+  `
   )
 }
 
@@ -85,11 +83,11 @@ const handleSubmit = async(e) => {
   loader(messageDiv);
 
   // Fetch data from server --> bot's botResponse
-  const botResponse = await fetch("https://ai-code-analyzer.onrender.com/", {
+  const botResponse = await fetch('https://ai-code-analyzer.onrender.com/', {
     // const botResponse = await fetch("http://localhost:5000", {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json' // The request includes a header with the content type set to 'application/json'
+      'Content-Type': 'application/json', // The request includes a header with the content type set to 'application/json'
     },
     body: JSON.stringify({
       prompt: data.get('prompt') // body contains data comming from our text element
@@ -97,14 +95,14 @@ const handleSubmit = async(e) => {
   })
 
   // clear the dots so we can add the message
-  clearInterval(loadInterval);
-  messageDiv.innerHTML = '';
+  clearInterval(loadInterval)
+  messageDiv.innerHTML = " "
 
-  if(botResponse.ok) {
-    const data = await botResponse.json(); // botResponse from the BE
+  if (response.ok) {
+    const data = await response.json(); // botResponse from the BE
     const parsedData = data.bot.trim(); // we gotta parse the botResponse
 
-    console.log({parsedData})
+    //console.log({parsedData})
 
     // Pass the parsed data to the typeText function
     typeText(messageDiv, parsedData); 
